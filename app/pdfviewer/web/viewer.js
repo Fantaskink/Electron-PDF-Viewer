@@ -7566,9 +7566,6 @@ function webViewerInitialized() {
   document.getElementById('presentationMode').addEventListener('click',
     SecondaryToolbar.presentationModeClick.bind(SecondaryToolbar));
 
-  document.getElementById('print').addEventListener('click',
-    SecondaryToolbar.printClick.bind(SecondaryToolbar));
-
   if (file && file.lastIndexOf('file:', 0) === 0) {
     // file:-scheme. Load the contents in the main thread because QtWebKit
     // cannot load file:-URLs in a Web Worker. file:-URLs are usually loaded

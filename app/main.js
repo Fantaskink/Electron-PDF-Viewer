@@ -81,6 +81,7 @@ const menuBarTemplate = [
             { role: 'resetZoom' },
             { type: 'separator' },
             { role: 'togglefullscreen' },
+            { role: 'toggleDevTools'}
         ]
     },
     {
@@ -214,10 +215,7 @@ function createMainWindow() {
         e.preventDefault();
         shell.openExternal(url);
     });
-    mainWindow.webContents.on('devtools-opened', function (e) {
-        e.preventDefault();
-        this.closeDevTools();
-    });
+    
     mainWindow.webContents.on('will-navigate', function (e, url) {
         e.preventDefault();
         shell.openExternal(url);
@@ -243,3 +241,4 @@ function handleOpenFile() {
         mainWindow.loadURL('file://' + __dirname + '/pdfviewer/web/viewer.html?file=' + encodeURIComponent(filepath), options);
     }
 }
+
