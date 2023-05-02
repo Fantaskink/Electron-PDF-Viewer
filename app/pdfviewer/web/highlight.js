@@ -26,7 +26,10 @@ async function highlight() {
         caseSensitive: true,
         highlightAll: false,
     });
-    return window.dispatchEvent(event);
+     
+  window.dispatchEvent(event);
+
+  playAudio(iteration);
 
 }
 
@@ -125,5 +128,9 @@ function concatenateStrings(strings) {
     return result;
   }
   
-  
+  async function playAudio(i) {
+    let audio = new Audio('../../../app/output/audio/line' + i  + '.mp3');
+
+    return audio.play();
+}
   
